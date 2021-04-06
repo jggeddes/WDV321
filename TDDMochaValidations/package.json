@@ -1,0 +1,19 @@
+{
+  "name": "tddmochavalidations",
+  "version": "1.0.0",
+  "description": "mocha chai testing",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Justina",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^7.2.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {}
+}
