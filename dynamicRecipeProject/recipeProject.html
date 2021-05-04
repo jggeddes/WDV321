@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>WDV321 Advanced Javascript</title>
+  <script src="js/recipeProject.js"></script>
+  <script src="js/servingSize.js"></script>
+  <script src="js/newRecipe.js"></script>
+  <link rel="stylesheet" href="css/recipe.css" />
+</head>
+
+<body onload="pageSetupOnLoad()">
+<header>
+  	<h1>Choose A Recipe</h1>
+  
+    <label>
+      	<select name="recipeType" id="recipeType" style="font-size: 200%; ">
+      		<option value="default">-- Please Select an Recipe --</option>
+        	<option value="A">Crockpot Chili</option>
+        	<option value="B">Chocolate Chip Cookies</option>
+        	<option value="C">Banana Bread</option>
+        	<option value="D">Mac & Cheese</option>
+      	</select>
+    </label>
+</header>
+
+<div id="chili" class="center">
+  	<h3>Crockpot Chili</h3>
+	<img src="images/chili.jpg" alt="Chili" width="350" height="250" />
+	<p>Serves: 6 </p>
+	<p>Preparation: 25 minutes</p>
+	<p>Cooking: 6 hours</p>
+	<p>Difficulty: Average</p>
+	
+	<button class="accordion" onClick = "ingredientsChili();">Ingredients</button>
+	<div class="panel">
+		<div class = "servingsButtons">
+        	<span>Serving Size: </span>
+        	<button class = "half" onClick = "halfServingChangeChili();">Half</button>
+        	<button class = "normal" onClick = "ingredientsChili();">Normal</button>
+        	<button class = "double" onClick = "doubleServingChangeChili();">Double</button>
+      	</div>
+      		<p id = "ingredientsChili"></p>
+	</div>
+	
+	<button class="accordion">Instructions</button>
+	<div class="panel">
+  		<ol>
+  			<li>Heat cooking oil in 2 quart skillet.</li>
+			<li>Saute onions and peppers for 5 minutes.</li>
+			<li>Add spices and stir for 30 seconds.</li>
+			<li>Add meat and cook until browned. Approximately 15 minutes.</li>
+			<li>Pour contents of skillet into 3 quart crock pot.</li>
+			<li>Rinse beans and place in crockpot.</li>
+			<li>Open and pour Tomato puree and sauce into crock pot.</li>
+			<li>Cover crockpot and cook on low for 6 hours.</li>
+			<li>Serve into individual bowls and top with sour cream and cheese.</li>
+  		</ol>
+	</div>
+</div>
+
+<div id="chocolateChipCookies" class="center">
+  	<h3>Chocolate Chip Cookies</h3>
+	<img src="images/chocolateChipCookies.jpg" alt="Chocolate Chip Cookies" width="350" height="250" />
+	<p>Serves: 24</p>
+	<p>Preparation: 20 minutes</p>
+	<p>Cooking: 10 minutes</p>
+	<p>Difficulty: Easy</p>
+	
+	<button class="accordion" onClick = "ingredientsChocolateCookies();">Ingredients</button>
+	<div class="panel">
+  		<div class = "servingsButtons">
+        <span>Servings: </span>
+        <button class = "half" onClick = "halfServingChocolateCookies();">Half</button>
+        <button class = "normal" onClick = "ingredientsChocolateCookies();">Normal</button>
+        <button class = "double" onClick = "doubleServingChocolateCookies();">Double</button>
+      </div>
+      		<p id = "ingredientsCCC"></p>
+	</div>
+
+	<button class="accordion">Instructions</button>
+	<div class="panel">
+  		<ol>
+  			<li>Preheat oven to 350 degrees F (175 degrees C).</li>
+  			<li>Cream together the butter, white sugar, and brown sugar until smooth.</li>
+  			<li>Beat in the eggs one at a time, then stir in the vanilla.</li>
+  			<li>Dissolve baking soda in hot water. Add to batter along with salt.</li>
+  			<li>Stir in flour, chocolate chips, and nuts.</li>
+  			<li>Drop by large spoonfuls onto un-greased/greased pan(s).</li>
+  			<li>Bake for about 10 minutes in the preheated oven, or until edges are nicely browned.</li>
+  		</ol>
+	</div>
+  </div>
+  
+<div id="homemadeMacAndCheese" class="center">
+  	<h3>Mac & Cheese</h3>
+	<img src="images/mac.jpg" alt="Homemade Mac And Cheese" width="300" height="250" />
+	<p>Serves: 4</p>
+	<p>Preparation: 20 minutes</p>
+	<p>Cooking: 30 minutes</p>
+	<p>Difficulty: Easy</p>
+	
+	<button class="accordion" onClick = "ingredientsMacAndCheese();">Ingredients</button>
+	<div class="panel">
+  		<div class = "servingsButtons">
+        <span>Servings: </span>
+        <button class = "half" onClick = "halfServingMacAndCheese();">Half</button>
+        <button class = "normal" onClick = "ingredientsMacAndCheese();">Normal</button>
+        <button class = "double" onClick = "doubleServingMacAndCheese();">Double</button>
+      </div>
+		<p id = "ingredientsMAC"></p>
+	</div>
+
+	<button class="accordion">Instructions</button>
+	<div class="panel">
+  		<ol>
+  			<li>Cook macaroni according to the package directions. Drain.</li>
+  			<li>In a saucepan, melt butter or margarine over medium heat. Stir in enough flour to make a roux.</li>
+  			<li>Add milk to roux slowly, stirring constantly.</li>
+  			<li>Stir in cheeses, and cook over low heat until cheese is melted and the sauce is a little thick.</li>
+  			<li>Put macaroni in large casserole dish, and pour sauce over macaroni. Stir well.</li>
+  			<li>Melt butter or margarine in a skillet over medium heat. Add breadcrumbs and brown. Spread over the macaroni and cheese to cover. Sprinkle with a little paprika.</li>
+  			<li>Bake at 350 degrees F (175 degrees C) for 30 minutes. Serve.</li>
+  		</ol>
+	</div>
+  </div>
+
+<div id="bananaBread" class="center">
+  	<h3>Banana Bread</h3>
+	<img src="images/bananaBread.jpg" alt="Banana Bread" width="350" height="250" />
+	<p>Serves: 12 </p>
+	<p>Preparation: 15 minutes</p>
+	<p>Cooking: 1 hr 5 mins</p>
+	<p>Difficulty: Easy</p>
+	<p>Yield: 1 loaf</p>
+	
+	<button class="accordion" onClick = "ingredientsBananaBread();">Ingredients</button>
+	<div class="panel">
+  		<div class = "servingsButtons">
+        <span>Servings: </span>
+        <button class = "half" onClick = "halfServingBananaBread();">Half</button>
+        <button class = "normal" onClick = "ingredientsBananaBread();">Normal</button>
+        <button class = "double" onClick = "doubleServingBananaBread();">Double</button>
+      </div>
+      		<p id = "ingredientsBBread"></p>
+	</div>
+
+	<button class="accordion">Instructions</button>
+	<div class="panel">
+  		<ol>
+  			<li>Preheat oven to 350 degrees F (175 degrees C). Lightly grease a 9x5 inch loaf pan.</li>
+  			<li>In a large bowl, combine flour, baking soda and salt.</li>
+  			<li>In a separate bowl, mash the banana's</li>
+  			<li>In another separate bowl, cream together butter and brown sugar. Stir in eggs and mashed bananas until well blended.</li>
+  			<li>Stir banana mixture into flour mixture; stir just to moisten.</li>
+  			<li>Pour batter into prepared loaf pan.</li>
+  			<li>Bake in preheated oven for 60 to 65 minutes, until a toothpick inserted into center of the loaf comes out clean</li>
+  			<li>Let bread cool in pan for 10 minutes, then turn out onto a wire rack.</li>
+  		</ol>
+	</div>
+  </div>
+	
+<div class="newRecipe">
+</div>
+	
+<div class="new">
+	<h2>Do you have a recipe you'd like to see featured on the site?</h2>
+        <div>
+        	<a href="newRecipeForm.html"><button type="button" style="font-size:35px; margin-top:10px;">Make a New Recipe</button></a>
+    	</div>
+        
+
+	<h1>-----------------------------------</h1>
+	
+        <h2>Just submited a recipe?</h2>
+	
+	<button type="button" id="displayNewRecipe" onclick="createUserRecipe(); this.onclick=null;" style="font-size:35px; margin-top:10px;">See your recipe</button>
+</div>
+
+
+	
+<script>								
+	var acc = document.getElementsByClassName("accordion");
+	var i;
+
+	for (i = 0; i < acc.length; i++) {
+  		acc[i].addEventListener("click", function() {
+    		this.classList.toggle("active");
+    		var panel = this.nextElementSibling;
+    		if (panel.style.maxHeight) {
+      			panel.style.maxHeight = null;
+    		} else {
+      			panel.style.maxHeight = panel.scrollHeight + "px";
+    		} 
+  		});
+	}
+</script>
+
+<footer>
+
+</footer>
+
+
+</body>
+</html>

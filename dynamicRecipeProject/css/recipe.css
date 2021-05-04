@@ -1,0 +1,118 @@
+#chocolateChipCookies, #bananaBread, #chili, #homemadeMacAndCheese, #homemadeSuckers {
+            display: none;
+			text-align:center;
+			width:30%;
+			padding:2%;
+    }
+
+body {
+	margin: 20px;
+}
+
+h1 {font-size: 300%;}
+
+h1, h2, h3, h4, h5, h6, p {text-align: center;}
+
+header, .new {
+	text-align: center;
+	background: #EE35FF;
+	padding: 50px;
+}
+
+.center{
+    text-align: center;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+
+/* Add Recipe Form */
+form {
+  padding: 1%;
+  margin: 5%;
+  margin-right: 25%;
+  margin-left: 25%;
+  width: 50%;
+  background-color: #EE35FF;
+  border-radius: 20px;
+  border: 2px solid black;
+  text-align:center;
+}
+
+form input[type=text] {
+  width: 20%;
+}
+
+form input[type=number] {
+   width: 5%;
+}
+
+form input {
+   margin-bottom: 2%;
+}
+
+
+/* Add Recipe */
+#addRecipePanel {
+  background-color: white;
+}
+
+#addRecipeAccordion {
+ background-color: #EE35FF;
+  color: #000000;
+  font-weight: bold;
+  font-size: 120%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  width: 100%;
+}
+
+.active, #addRecipeAccordion:hover {
+  background-color: #ccc;
+}
+
+.addRecipeForm {
+    height: 1000px;
+    overflow-y: auto;
+}
+
+
+/* Accordion  */
+.accordion {
+ 		background-color: #eee;
+  		color: black;
+  		cursor: pointer;
+  		padding: 18px;
+  		width: 100%;
+  		border: none;
+  		outline: none;
+  		font-size: 15px;
+  		transition: 0.4s;
+		text-align: left;
+	}
+
+	.active, .accordion:hover {
+  		background-color: #ccc;
+	}
+
+	.accordion:after {
+  		content: '\002B';
+  		color: black;
+  		font-weight: bold;
+  		float: right;
+  		margin-left: 5px;
+	}
+
+	.active:after {
+  		content: "\2212";
+	}
+
+	.panel {
+  		padding: 0 18px;
+  		background-color: white;
+  		max-height: 0;
+  		overflow: hidden;
+  		transition: max-height 0.2s ease-out;
+		text-align: left;
+	}
