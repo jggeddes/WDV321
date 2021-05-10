@@ -1,13 +1,48 @@
 // JavaScript Document
-let userSubmittedRecipes = [];
+var instruction = [];
 
-let servingsSelect = document.querySelector("#servings");
-let prepTimeHrMin = document.querySelector("#prep-time-measure");
-let cookTimeHrMin = document.querySelector("#cook-time-measure");
+        //reset form
+        function ResetForm() {
+            document.querySelector("input").value = "";
+            
+        }
+
+        //load local stoarage data on button click
+        function loadDataFromLocalStoarage() {
+            document.querySelector("[name='recipe-title']").value = localStorage.getItem("recipe-title") || "";
+            document.querySelector("[name='recipe-image']").value = localStorage.getItem("image") || "";
+            document.querySelector("[name='servings']").value = localStorage.getItem("servings") || "";
+            document.querySelector("[name='prep-time']").value = localStorage.getItem("preptime") || "";
+            document.querySelector("[name='cook-time']").value = localStorage.getItem("cooktime") || "";
+            document.querySelector("[name='ingredient1']").value = localStorage.getItem("ingredient1") || "";
+            document.querySelector("[name='UOMQuantity1']").value = localStorage.getItem("UOMQuantity1") || "";
+            document.getElementById("prep-time-measure").value = localStorage.getItem("preptimemeasure") || "";
+            document.getElementById("difficultylevel").value = localStorage.getItem("difficultylevel") || "";
+
+        }
+
+        //process form
+        function processForm() {
+            //set data in the local stoarage
+            localStorage.setItem("recipe-title", document.querySelector("[name='recipe-title']").value);
+            localStorage.setItem("image", document.querySelector("[name='recipe-image']").value);
+            localStorage.setItem("servings", document.querySelector("[name='servings']").value);
+            localStorage.setItem("preptime", document.querySelector("[name='prep-time']").value);
+            localStorage.setItem("cooktime", document.querySelector("[name='cook-time']").value);
+            localStorage.setItem("ingredient1", document.querySelector("[name='ingredient1']").value);
+            localStorage.setItem("UOMQuantity1", document.querySelector("[name='UOMQuantity1']").value);
+
+            localStorage.setItem("preptimemeasure", document.getElementById("prep-time-measure").value);
+            //difficultylevel
+            localStorage.setItem("difficultylevel", document.getElementById("difficultylevel").value);
+             
+        }
+
+
+//Add Instructions
 
 let ingredientCount = 1;
 let instructionCount = 1;
-
 let UOMOptions = ["--Select UOM--", "Pinch", "Teaspoon", "Tablespoon", "Fluid Ounces", "Cup", "Can(s)", "Pint", "Gallon", '" " (eggs or bread)'];
 
 function createRecipeInputField() {
@@ -35,7 +70,7 @@ function createRecipeInputField() {
 
     let ingredientInputUOMQuanLabel = document.createElement("label");
     ingredientInputUOMQuanLabel.htmlFor = "UOMQuantity" + ingredientCount;
-    ingredientInputUOMQuanLabel.innerHTML = "Unit of measurement quantity  " + ingredientCount;
+    ingredientInputUOMQuanLabel.innerHTML = "Measurement quantity  " + ingredientCount;
     userIngredientsContainer.appendChild(ingredientInputUOMQuanLabel);
 
     let ingredientInputUOMQuantity = document.createElement("input");
@@ -48,7 +83,7 @@ function createRecipeInputField() {
 
     let UOMSelectLabel = document.createElement("label");
     UOMSelectLabel.htmlFor = "ingredientUOM " + ingredientCount;
-    UOMSelectLabel.innerHTML = "Ingredient unit of measurement " + ingredientCount;
+    UOMSelectLabel.innerHTML = "Unit of measurement " + ingredientCount;
     userIngredientsContainer.appendChild(UOMSelectLabel);
 
     let ingredientInputUOM = document.createElement("select");
@@ -61,8 +96,6 @@ function createRecipeInputField() {
 
     userIngredientsContainer.appendChild(ingredientInputUOM);
 }
-
-
 
 function createInstructionField() {
 
@@ -85,215 +118,3 @@ function createInstructionField() {
 }
 
 document.querySelector("#addInstruction").addEventListener("click", createInstructionField);
-
-function validateForm() {
-
-    let validForm = true;
-    let errMsg = " *Please fill out this field*";
-
-    if(document.querySelector("#first-name").value == "") {
-        document.querySelector("#firstNameErr").innerHTML = errMsg;
-        validForm = false;
-    } else {
-        validForm = true;
-        document.querySelector("#firstNameErr").style.display = "none";
-    }  
-    
-    if(document.querySelector("#last-name").value == "") {
-        document.querySelector("#lastNameErr").innerHTML = errMsg;
-        validForm = false;
-    } else {
-        validForm = true;
-        document.querySelector("#lastNameErr").style.display = "none";
-    }
-
-    if(document.querySelector("#recipe-title").value == "") {
-        document.querySelector("#recipeTitleErr").innerHTML = errMsg;
-        validForm = false;
-    } else {
-        validForm = true;
-        document.querySelector("#recipeTitleErr").style.display = "none";
-    }
-
-
-    let servings = document.querySelector("#servings").value;
-    //console.log(servings);
-
-    if (servings == "default") {
-        errMsg = " *Please select an option*"
-        document.querySelector("#servingsErr").innerHTML = errMsg;
-        validForm = false;
-    } else {
-        validForm = true;
-        document.querySelector("#servingsErr").style.display = "none";
-    }
-
-    let prepTime = document.querySelector("#prep-time").value;
-    //console.log(prepTime);
-
-    if (prepTime == "") {
-        errMsg = " *Please fill out this field*";
-        document.querySelector("#prepTimeErr").innerHTML = errMsg;
-        validForm = false;
-    } else {
-        validForm = true;
-        document.querySelector("#prepTimeErr").style.display = "none";
-    }
-
-    let prepHrMin = document.querySelector("#prep-time-measure").value;
-    //console.log(prepHrMin);
-
-    if(prepHrMin == "default") {
-        errMsg = " *Please select an option*";
-        document.querySelector("#prepTimeMsrErr").innerHTML = errMsg;
-        validForm = false;
-    } else {
-        validForm = true;
-        document.querySelector("#prepTimeMsrErr").style.display = "none";
-    }
-
-    let cookTime = document.querySelector("#cook-time").value;
-    //console.log(cookTime);
-
-    if(cookTime == "") {
-        errMsg = " *Please fill out this field*";
-        document.querySelector("#cookTimeErr").innerHTML = errMsg;
-        validForm = false;
-    } else {
-        validForm = true;
-        document.querySelector("#cookTimeErr").style.display = "none";
-    }
-
-    let cookHrMin = document.querySelector("#cook-time-measure").value;
-    //console.log(cookHrMin);
-
-    if(cookHrMin == "default") {
-        errMsg = " *Please select an option*";
-        document.querySelector("#cookTimeMsrErr").innerHTML = errMsg;
-        validForm = false;
-    } else {
-        validForm = true;
-        document.querySelector("#cookTimeMsrErr").style.display = "none";
-    }
-
-    let ingredient = document.querySelector("#ingredient1").value;
-    //console.log(ingredient);
-
-    if(ingredient == "") {
-        errMsg = " *Please fill out this field*";
-        document.querySelector("#ingredientErr").innerHTML = errMsg;
-        validForm = false;
-    } else {
-        validForm = true;
-        document.querySelector("#ingredientErr").style.display = "none";
-    }
-
-    let UOMQuan = document.querySelector("#UOMQuantity1").value;
-    //console.log(UOMQuan);
-
-    if (UOMQuan == "") {
-        document.querySelector("#measureQuanErr").innerHTML = errMsg;
-        validForm = false;
-    } else {
-        validForm = true;
-        document.querySelector("#measureQuanErr").style.display = "none";
-    }
-
-    let ingredientUOM = document.querySelector("#ingredientUOM1").value;
-    //console.log(ingredientUOM);
-
-    if(ingredientUOM == "default") {
-        document.querySelector("#ingredientUOMErr").innerHTML = errMsg;
-        validForm = false;
-    } else {
-        validForm = true;
-        document.querySelector("#ingredientUOMErr").style.display = "none";
-    }
-
-    let instruction = document.querySelector("#instruction1").value;
-    //console.log(instruction);
-
-    if(instruction == "") {
-        document.querySelector("#instructionErr").innerHTML = errMsg;
-        validForm = false;
-    } else {
-        validForm = true;
-        document.querySelector("#instructionErr").style.display = "none";
-    }
-
-    if (validForm == true) {
-        return true;
-    }
-
-};
-
-function processForm() {
-
-    let userRecipe = {
-
-        userFName: document.querySelector("#first-name").value,
-        userLName: document.querySelector("#last-name").value,
-        recipeTitle: document.querySelector("#recipe-title").value,
-        servings: servingsSelect.options[servingsSelect.selectedIndex].value,
-        prepTime: document.querySelector("#prep-time").value,
-        prepTimeMeasure: prepTimeHrMin.options[prepTimeHrMin.selectedIndex].value,
-        cookTime: document.querySelector("#cook-time").value,
-        cookTimeMeasure: cookTimeHrMin.options[cookTimeHrMin.selectedIndex].value,
-        recipeImg: document.querySelector("#recipe-img").value,
-    
-        ingredients: [
-    
-        ],
-    
-        instructions: [
-    
-        ]
-    };
-
-    if (validateForm()) {
-
-    let x = 1;
-
-    while(x <= ingredientCount) {
-
-    let ingredientObj = {
-        ingredient: document.querySelector("#ingredient" + x).value,
-        ingredientUOMQuan: document.querySelector("#UOMQuantity" + x).value,
-        ingredientUOM: document.querySelector("#ingredientUOM" + x).value
-    };
-
-    userRecipe.ingredients.push(ingredientObj);
-
-    x++;
-
-    } //END OF LOOP
-
-    console.log(instructionCount);
-
-
-    let y = 1;
-
-    while (y <= instructionCount ) {
-
-    let instructionObj = {
-        
-        instruction: document.querySelector("#instruction" + y).value
-    }
-    y++;
-
-    userRecipe.instructions.push(instructionObj);
-
-    };  //END OF LOOP
-
-    alert("Form has been successfully submitted. Return to the home page to see your recipe");
-    
-
-    let JSONUserRecipe = JSON.stringify(userRecipe);
-
-    console.log(JSONUserRecipe);
-
-    localStorage.setItem("userRecipe", JSONUserRecipe);    
-
-}
-
-}

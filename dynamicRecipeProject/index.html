@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>WDV321 Advanced Javascript</title>
+	<link rel="stylesheet" href="css/index.css" />
+	<script src="js/index.js"></script>
+	
+	<script src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous">	
+	</script>
+	
+	<script>
+	//show/hide ingredients	
+		$(document).ready(function(){		
+			$("#togIngred").click(function(){		
+				$("#ingred").toggle();  
+			});	
+		});
+	
+				
+	//show/hide instructions
+		$(document).ready(function(){
+			$("#togInstruct").click(function(){
+				$("#instruct").toggle();
+			});	
+		});
+		
+	</script>	
+</head>
+<body>
+	<header>
+		<h1>Choose a Recipe</h1>
+		<div class="flex-container" >
+			<figure onClick="chiliRecipe()">
+				<img src="images/chili.jpg" alt="chili">
+				<h3>Crockpot Chili</h3>
+				<p>Serves: 6</p>
+				<p>Preparation: 25 Minutes</p>
+				<p>Cooking: 6 hours</p>
+				<p>Difficulty: Average</p>
+			</figure>
+			
+			<figure onClick="cookieRecipe()">
+				<img src="images/chocolateChipCookies.jpg" alt="Chocolate Chip Cookies">
+				<h3>Chocolate Chip Cookies</h3>
+				<p>Serves: 24</p>
+				<p>Preparation: 20 Minutes</p>
+				<p>Cooking: 10 Minutes</p>
+				<p>Difficulty: Easy</p>
+			</figure>	
+		
+			<figure onClick="breadRecipe()">
+				<img src="images/bananaBread.jpg" alt="Banana Bread">
+				<h3>Banana Bread</h3>
+				<p>Serves: 12 (1 Loaf)</p>
+				<p>Preparation: 15 Minutes</p>
+				<p>Cooking: 1 Hour 5 Minutes</p>
+				<p>Difficulty: Easy</p>
+			</figure>	
+		</div>
+		<div>
+		<a href="newRecipeForm.html"><button type="button" style="font-size:30px; margin-top:20px;">Make a New Recipe</button></a> 
+		<h2>OR</h2>
+		<button type="button" id="displayNewRecipe" onclick="accessLocalStorage()" style="font-size:30px; margin-top:10px;">View your recipe</button>
+			
+			<script>
+				function accessLocalStorage(){
+            		$("#displayInputRecipe").html(localStorage.getItem("recipe-title"));
+        		}
+			</script>
+		</div>
+	</header>
+	
+	<h3 id="displayInputRecipe"></h3>
+	
+	<div class="displayRecipe">
+		
+		<span id="currentRecipe" class="recipe" style="display: none">
+
+			<p><span id="image" class="center"></span></p>
+
+			<h3><span id="recipeName" ></span></h3>
+
+			<p>Serves: <span id="servings" ></span></p>
+
+			<p>Preparation: <span id="prepTime" ></span></p>
+
+			<p>Cooking: <span id="cookTime" ></span></p>
+			
+			<p>Difficulty: <span id="difficulty" ></span></p>
+			
+			<p>Change Serving Size: <span id="half"></span> <span id="double"></span> <span id="original"></span></p>
+			
+			<button class="accordion">Ingredients</button>
+				<div class="panel">
+					<p><span id="ingred"></span></p>
+				</div>
+			
+			<button class="accordion">Instructions</button>
+				<div class="panel">
+					<p><span id="instruct"></span></p>
+				</div>
+	
+	
+	
+	<div class="displayRecipe">
+		
+		<span id="currentRecipe" class="recipe" style="display: none">
+
+			<p><span id="image" class="center"></span></p>
+
+			<h3><span id="recipeName" ></span></h3>
+
+			<p>Serves: <span id="servings" ></span></p>
+
+			<p>Preparation: <span id="prepTime" ></span></p>
+
+			<p>Cooking: <span id="cookTime" ></span></p>
+			
+			<p>Difficulty: <span id="difficulty" ></span></p>
+			
+			<p>Change Serving Size: <span id="half"></span> <span id="double"></span> <span id="original"></span></p>
+			
+			<button class="accordion">Ingredients</button>
+				<div class="panel">
+					<p><span id="ingred"></span></p>
+				</div>
+			
+			<button class="accordion">Instructions</button>
+				<div class="panel">
+					<p><span id="instruct"></span></p>
+				</div>
+			
+
+<script>								
+	var acc = document.getElementsByClassName("accordion");
+	var i;
+
+	for (i = 0; i < acc.length; i++) {
+  		acc[i].addEventListener("click", function() {
+    		this.classList.toggle("active");
+    		var panel = this.nextElementSibling;
+    		if (panel.style.maxHeight) {
+      			panel.style.maxHeight = null;
+    		} else {
+      			panel.style.maxHeight = panel.scrollHeight + "px";
+    		} 
+  		});
+	}
+</script>
+			
+			
+			
+		</span>	
+		
+	</div>
+</body>
+</html>
