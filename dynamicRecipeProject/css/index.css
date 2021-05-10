@@ -1,0 +1,146 @@
+/* CSS Document */
+
+/* Header */
+header {
+	text-align: center;
+	background: #EE35FF;
+	padding: 80px;
+}
+
+h1 {
+	font-size:300%;
+}
+
+
+/* Recipe Choices */
+img {
+		display: block;
+		width:  260px;
+		height: 150px;
+	}
+
+figure {
+		text-align: center;
+		background-color:#F2F1EF;
+		border: 5px solid black;
+		margin: 15px;
+		width: 270px;
+	}	
+
+figure:hover{
+		background-color:#EE35FF;
+		color:white;
+		border:5px solid black;
+	}
+
+.flex-container{
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		flex-direction:row;
+		min-width: auto;
+		margin: 10px;
+	}
+
+.flex-container > figure {
+		width: 260px;
+		margin: 20px;
+		padding-bottom: 20px;
+		box-shadow: 5px 10px 8px black;
+		cursor: pointer;
+	}
+
+.displayRecipe{
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			flex-direction:row;
+			min-width: 100px;
+			margin: 10px;
+			margin-top: 55px;
+	}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 55%;
+}
+	
+.recipe{
+			flex-wrap: wrap;
+			flex-direction: row;
+			text-align: center;
+			background-color: white;
+			border: 5px;
+			padding: 50px;
+			margin: 15px;
+			width: 500px;
+			line-height: 1.4;
+	}
+
+
+/* Accordions  */
+.accordion {
+ 		background-color: #eee;
+  		color: black;
+  		cursor: pointer;
+  		padding: 18px;
+  		width: 100%;
+  		border: none;
+  		outline: none;
+  		font-size: 15px;
+  		transition: 0.4s;
+		text-align: left;
+	}
+
+	.active, .accordion:hover {
+  		background-color: #ccc;
+	}
+
+	.accordion:after {
+  		content: '\002B';
+  		color: black;
+  		font-weight: bold;
+  		float: right;
+  		margin-left: 5px;
+	}
+
+	.active:after {
+  		content: "\2212";
+	}
+
+	.panel {
+  		padding: 0 18px;
+  		background-color: white;
+  		max-height: 0;
+  		overflow: hidden;
+  		transition: max-height 0.2s ease-out;
+		text-align: left;
+	}
+	
+/* New Recipe */
+form {
+  padding: 1%;
+  margin: 5%;
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
+  background-color: #EE35FF;
+  border-radius: 20px;
+  border: 2px solid black;
+  text-align:center;
+}
+
+form input[type=text] {
+  width: 20%;
+}
+
+form input[type=number] {
+   width: 5%;
+}
+
+form input {
+   margin-bottom: 2%;
+}
+
